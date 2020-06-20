@@ -1,16 +1,28 @@
-let ABC = ['Ada','Greta','Vim','Tim']
 
-function adminMiddleware(req,res,next){
+let admins = ["Ada","Greta","Vim","Tim"]
+
+let adminMiddleware={
+
     
- for (i=0; i < usuariosRegistrados.length; i++){
-     let usuarioAdmitido=req.query
+    log:function(req,res,next){
+        
+        admins.forEach(function(admin){
+
+        if(admin==req.body.nombre){
+       
+        res.render('index')
+   
+       }else{
+           res.send('No tienes permisos')
+       }
+    });
     
-    if (req.body.nombre==usuarioAdmitido){
-        res.render ('index',{usuario})
- }else{
-
-    res.send('No tienes los permisos')
- }
-
+    }
 }
-}
+
+
+    
+
+       
+
+module.exports=adminMiddleware
